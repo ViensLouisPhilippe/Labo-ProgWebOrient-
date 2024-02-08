@@ -1,3 +1,5 @@
+import { DataService } from '../services/data.service';
+import { Character } from './../models/character';
 import { Component, OnInit } from '@angular/core';
 
 @Component({
@@ -7,11 +9,10 @@ import { Component, OnInit } from '@angular/core';
 })
 export class IndexComponent implements OnInit {
 
-  characters : string[] = ["bebe","butters","clyde","craig","eric","kenny","kyle","nichole","stan","tolkien","wendy"];
   
   characterName : string = "";
 
-  constructor() { }
+  constructor(public data : DataService) { }
 
   ngOnInit() {
     
