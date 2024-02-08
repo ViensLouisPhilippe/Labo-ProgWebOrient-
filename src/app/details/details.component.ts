@@ -1,3 +1,4 @@
+import { DataService } from './../services/data.service';
 import { Component } from '@angular/core';
 import { lastValueFrom } from 'rxjs';
 import { HttpClient } from '@angular/common/http';
@@ -14,7 +15,8 @@ export class DetailsComponent {
   characterName : string | null = null;
   characterDetails : Character | null = null;
 
-  constructor(public http: HttpClient, public route : ActivatedRoute){
+
+  constructor(public http: HttpClient, public route : ActivatedRoute, public data : DataService){
     
   }
   async ngOnInit() : Promise<void>{
@@ -22,9 +24,8 @@ export class DetailsComponent {
     if(this.characterName == null){
         this.characterName = "kenny";
     }
-    let x = await lastValueFrom(this.http.get<any>("https://spapi.dev/api/characters?search=" + this.characterName));
-    this.characterDetails = new Character(x.data[0].name, x.data[0].age, x.data[0].occupation, x.data[0].grade, x.data[0].episodes.length);
-    console.log(this.characterDetails);
+
+    this.characterDetails = await this.data.getCharacterDetail(this.characterName)
   }
 
 }
