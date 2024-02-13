@@ -11,6 +11,7 @@ export class StockageComponent implements OnInit {
   name ?: string; // Lié à un input
   age ?: number; // Lié à un input
   profile ?: Profile;
+  jsonData : string | null = null;
 
   constructor() { }
 
@@ -18,6 +19,9 @@ export class StockageComponent implements OnInit {
     this.afficherIcones();
 
     // Allo 👋
+    this.jsonData = localStorage.getItem("profile");
+    if (this.jsonData != null)
+      this.profile = JSON.parse(this.jsonData);
   }
 
   createProfile() : void{
@@ -34,6 +38,7 @@ export class StockageComponent implements OnInit {
   // Vous pouvez appeler cette fonction à tous les endroits où le profil change 😉
   saveProfile():void{
     // METTRE this.profile DANS LE STOCKAGE LOCAL 💾
+    localStorage.setItem("profile", JSON.stringify(this.profile));
   }
 
   finJeu(){
