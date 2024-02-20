@@ -24,6 +24,7 @@ registerLocaleData(localeFr, 'fr');
   imports: [
     BrowserModule,
     FormsModule,
+    GoogleMapsModule,
     HttpClientModule,
     RouterModule.forRoot([
       {path:"", redirectTo:"/youtube", pathMatch:"full"},

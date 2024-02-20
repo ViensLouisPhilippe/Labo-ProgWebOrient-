@@ -25,6 +25,10 @@
       <!--
         Affichez les marqueurs ici
       -->
+      <map-marker
+      *ngFor="let marker of markerPosition"
+      [position]="marker">
+      </map-marker>
     </google-map>
   </div>
 </div>
