@@ -1,0 +1,41 @@
+<header class="container">
+    <div class="row align-items-center">
+        <div class="col-auto">
+            <img src="../assets/images/logo.png" alt="Pokeball">
+        </div>
+        <div class="col">
+            Poké-intra sommatif
+        </div>
+    </div>
+</header>
+
+<nav class="container">
+    <div class="row text-center">
+        <a [routerLink]="['/list']" class="col">Composant list</a>
+        <a [routerLink]="['/one']"  class="col">Composant one</a>
+        <a [routerLink]="['/favs']"  class="col">Composant favs</a>
+    </div>
+</nav>
+
+<main class="container">
+
+    <router-outlet></router-outlet>
+    <!-- Composant List -->
+    <!--<app-list></app-list>-->
+
+    <!--<hr>-->
+
+    <!-- Composant Single -->
+
+
+    <!-- Composant Favoris -->
+    
+</main>
+
+<footer class="container">
+    <div class="row">
+        <div class="col text-center">
+            &copy;Intra sommatif - 4204W6
+        </div>
+    </div>
+</footer>
