@@ -14,18 +14,18 @@ namespace LaboSemaine8.Controllers
     [ApiController]
     public class AnimalsController : ControllerBase
     {
-        private readonly LaboSemaine8Context _context;
+        private readonly AnimalService _animalService;
 
-        public AnimalsController(LaboSemaine8Context context)
+        public AnimalsController(AnimalService animalService)
         {
-            _context = context;
+            _animalService = animalService;
         }
 
         // GET: api/Animals
         [HttpGet]
         public async Task<ActionResult<IEnumerable<Animal>>> GetAnimal()
         {
-          if (_context.Animal == null)
+          if (_animalService.Animal == null)
           {
               return NotFound();
           }
