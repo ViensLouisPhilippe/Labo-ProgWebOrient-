@@ -43,13 +43,15 @@ export class ImagesComponent implements OnInit {
 
   async getPictures(): Promise<void> {
     // TO DO: [Étape 4] Faire une requête à votre serveur pour obtenir les images
-    
-    
+    let x = await lastValueFrom(this.http.get<any>("https://localhost:7243/api/pictures/GetPicture"))
+    console.log(x);
+    this.pictures = x;    
   }
 
   async deletePicture(picture:Picture): Promise<void> {
     // TO DO: [Étape 4] Faire une requête à votre serveur pour supprimer une image
-
+    let x = await lastValueFrom(this.http.delete<any>("https://localhost:7243/api/pictures/DeletePicture/" + picture.id))
+    console.log(x);
     // Une fois que l'image est effacée, il faut mettre à jour les images que l'on affiche
     await this.getPictures();
   }
